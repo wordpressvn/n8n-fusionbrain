@@ -1,21 +1,2 @@
-# Loại trừ mã nguồn TypeScript
-*.ts
-!dist/*.js
-!dist/*.d.ts
-
-# Loại trừ thư mục không cần thiết
-node_modules
-tests
-coverage
-dist/*.map
-
-# Loại trừ tệp cấu hình và tạm
-.git
-.gitignore
-.github
-*.log
-*.tgz
-
-# Loại trừ tệp phát triển
-.eslintrc
-.prettierrc
+.DS_Store
+*.tsbuildinfo

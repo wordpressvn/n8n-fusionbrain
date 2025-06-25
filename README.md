@@ -1,59 +1,103 @@
-@wordpressvn/n8n-fusionbrain
-An n8n node to integrate with the FusionBrain AI API for generating images and retrieving models/styles.
-Installation
-
-Install the node in your n8n instance:npm install @wordpressvn/n8n-fusionbrain
+# n8n-fusionbrain
 
 
-Restart your n8n instance to load the node.
+⚠️ **Notice: This node is no longer maintained.**  
+Due to recent updates, the Fusionbrain API has become too unstable and unreliable for production use. Therefore, I have decided to stop maintaining this node.  
+There are now faster and more reliable image generation models and services available that I recommend considering instead.
 
-Setup
-
-Obtain API Credentials:
-
-Sign up at FusionBrain AI to get your API Key and Secret Key.
-In n8n, go to Credentials, select FusionBrain API, and enter your API Key and Secret Key.
+---
 
 
-Add the FusionBrain Node:
+This is an n8n community node. It lets you use _fusionbrain.ai_ in your n8n workflows.
 
-In your n8n workflow, add the FusionBrain node.
-Select an operation: Generate Image, List Models, or List Styles.
-Configure the node parameters (e.g., Prompt, Width, Height, Style for image generation).
+The fusionbrain.ai API offers a seamless solution for generating high-resolution images in JPG format, with resolutions
+reaching up to 1024x1024 pixels, facilitating versatile applications across various domains from art to design.
+Generation requests and images pass the appropriate censorship filters in accordance with our content policy, returning
+an error when the request or image does not match.
 
+[n8n](https://n8n.io/) is a [fair-code licensed](https://docs.n8n.io/reference/license/) workflow automation platform.
 
+[Installation](#installation)  
+[Operations](#operations)  
+[Credentials](#credentials)  
+[Usage](#usage)  
+[Resources](#resources)
 
-Operations
+## Installation
 
-Generate Image: Create an image based on a text prompt, with customizable width, height, and style.
-List Models: Retrieve available AI models from FusionBrain API.
-List Styles: Retrieve available styles for image generation.
+Follow the [installation guide](https://docs.n8n.io/integrations/community-nodes/installation/) in the n8n community
+nodes documentation.
 
-Example Workflow
+1. Go to **Settings** > **Community Nodes**.
+2. Select **Install**.
+3. Enter **n8n-fusionbrain** in Enter npm package name.
+4. Agree to the [risks](https://docs.n8n.io/integrations/community-nodes/risks/) of using community nodes: select **I
+	 understand the risks of installing unverified code from a public source**.
+5. Select Install.
 
-Add a FusionBrain node and set the operation to Generate Image.
-Enter a prompt (e.g., "A futuristic city at sunset"), set width/height (e.g., 1024x1024), and choose a style.
-Connect the node to other nodes in your workflow to process the generated image.
+After installing the node, you can use it like any other node. n8n displays the node in search results in the Nodes
+panel.
 
-Development
-To contribute or modify the node:
+## Operations
 
-Clone the repository:git clone https://github.com/wordpressvn/n8n-fusionbrain.git
+It supports these operations:
 
+* **Text2Image**: Generates an image based on a given prompt and optional parameters like style and dimensions.
+* **listModels**: Retrieves a list of available models that can be used for image generation.
+* **listStyles**: Retrieves a list of available styles to customize the generated images.
 
-Install dependencies:npm install
+## Credentials
 
+Create a free fusionbrain.ai account [here](https://fusionbrain.ai/en/).
 
-Build the project:npm run build
+* Generate API keys here: [https://fusionbrain.ai/en/keys/](https://fusionbrain.ai/en/keys/)
 
+## Usage
 
-Link to n8n for testing:npm link
-cd /path/to/n8n
-npm link @wordpressvn/n8n-fusionbrain
+* **Model**: Select the text-to-image model to use.
+* **Style**: Choose a style for the generated image (default: no style).
+* **Prompt**: The main input text used to generate the image.
+* **Negative Prompt**: (Optional) Specify elements to avoid in the generated image.
+* **Width / Height**: Default is 1024 x 1024. It is recommended to use dimensions that are multiples of 64 for optimal
+	results.
 
+### Default Style
 
+![default style](img/style-default.png)
 
-License
-MIT License. See LICENSE for details.
-Support
-For issues or feature requests, open an issue on GitHub.
+### Kandinsky Style
+
+![default style](img/style-kandinsky.png)
+
+### Detailed Photo
+
+![default style](img/style-detailed-photo.png)
+
+## Test Results
+
+This section displays the results of tests for each operation, based on a live n8n instance.
+
+| Operation     | Last Tested                                        | Status                                              |
+|---------------|----------------------------------------------------|-----------------------------------------------------|
+| Text to Image | <span id="test-text2image-date">2025-04-08</span>  | <span id="test-text2image-status">✅ Success</span>  |
+| List Models   | <span id="test-list-models-date">2025-04-08</span> | <span id="test-list-models-status">✅ Success</span> |
+| List Styles   | <span id="test-list-styles-date">2025-04-08</span> | <span id="test-list-styles-status">✅ Success</span> |
+
+### Created Images
+
+**Prompt:**
+<pre id="test-text2image-prompt">hydra, by Lyonel Feininger,</pre>
+
+**Images:**
+
+| Model           | Style          | Image                                                                                                                             |
+|-----------------|----------------|-----------------------------------------------------------------------------------------------------------------------------------|
+| Kandinsky (3.1) | No Style       | <span id="test-text2image-no-style-image">![No Style 2025-04-08](img/testresuls/2025-04-08-no-style.jpg)</span>                   |
+| Kandinsky (3.1) | Detailed Photo | <span id="test-text2image-detailed-photo-image">![Detailed Photo 2025-04-08](img/testresuls/2025-04-08-detailed-photo.jpg)</span> |
+| Kandinsky (3.1) | Anime          | <span id="test-text2image-anime-image">![Anime 2025-04-08](img/testresuls/2025-04-08-anime.jpg)</span>                            |
+| Kandinsky (3.1) | Kandinsky      | <span id="test-text2image-kandinsky-image">![Kandinsky 2025-04-08](img/testresuls/2025-04-08-kandinsky.jpg)</span>                |
+
+## Resources
+
+* [n8n community nodes documentation](https://docs.n8n.io/integrations/community-nodes/)
+* [fusionbrain.ai API Documentation](https://fusionbrain.ai/docs/en/doc/api-dokumentaciya/)
