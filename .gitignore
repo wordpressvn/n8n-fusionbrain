@@ -1,0 +1,15 @@
+Node.js
+
+node_modules/ dist/ *.tgz
+
+Logs
+
+.log npm-debug.logyarn-debug.log* yarn-error.log*
+
+Editor
+
+.vscode/ .idea/ *.suo .ntvs*.njsproj *.sln *.swp
+
+OS
+
+.DS_Store Thumbs.db

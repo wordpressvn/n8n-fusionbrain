@@ -8,3 +8,4 @@
     "esModuleInterop": true
   },
   "include": ["nodes/**/*.ts", "credentials/**/*.ts", "index.ts"]
+}

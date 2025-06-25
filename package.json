@@ -1,17 +1,33 @@
 {
-  "name": "n8n-fusionbrain",
+  "name": "@wordpressvn/n8n-fusionbrain",
   "version": "1.0.0",
   "description": "n8n node to integrate with FusionBrain AI API",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "test": "echo \"No tests specified\" && exit 0"
   },
-  "keywords": ["n8n-nodes"],
+  "keywords": ["n8n", "n8n-nodes", "fusionbrain", "ai", "image-generation"],
   "author": "CỌP",
   "license": "MIT",
-  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wordpressvn/n8n-fusionbrain.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wordpressvn/n8n-fusionbrain/issues"
+  },
+  "homepage": "https://github.com/wordpressvn/n8n-fusionbrain#readme",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "dependencies": {
+    "n8n-workflow": "^1.0.0"
+  },
   "devDependencies": {
     "@types/node": "^18.0.0",
     "typescript": "^5.0.0"
